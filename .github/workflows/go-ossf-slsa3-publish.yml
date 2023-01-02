@@ -39,3 +39,16 @@ jobs:
       #     Optional: For more options, see https://github.com/slsa-framework/slsa-github-generator#golang-projects
       # =============================================================================================================
 
+  non_slsa:
+    permissions:
+      id-token: write # To sign.
+      contents: write # To upload release assets.
+      actions: read   # To read workflow path.
+    uses: goreleaser/goreleaser-action@v4
+    with:
+      # either 'goreleaser' (default) or 'goreleaser-pro':
+      distribution: goreleaser
+      version: latest
+      args: release --rm-dist
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
