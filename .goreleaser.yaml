@@ -7,21 +7,27 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - env:
-      - CGO_ENABLED=0
+  - id: setup-network-environment
+    ignore:
+      - goos: linux
+        goarch: amd64
+    # handled by slsa-goreleaser
+
     goos:
       - linux
       - linux
       - linux
+
     goarch:
       - amd64
       - arm
       - arm64
 
-# handled by slsa-goreleaser
-ignore:
-  - goos: linux
-    goarch: amd64
+    goarm:
+      - 7
+
+    env:
+      - CGO_ENABLED=0
 
 archives:
   - format: tar.gz
