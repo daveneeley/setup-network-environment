@@ -33,7 +33,7 @@ archives:
     replacements:
       linux: Linux
       amd64: x86_64
-      arm:   arm32v{{ .Arm }}
+      arm:   arm32
     format: tar.gz
     # use zip for windows archives
     format_overrides:
