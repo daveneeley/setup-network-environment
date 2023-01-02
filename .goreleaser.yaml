@@ -8,10 +8,10 @@ before:
     - go generate ./...
 builds:
   - id: setup-network-environment
+    # handled by slsa-goreleaser
     ignore:
       - goos: linux
         goarch: amd64
-    # handled by slsa-goreleaser
 
     goos:
       - linux
