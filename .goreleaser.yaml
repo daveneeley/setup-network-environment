@@ -8,9 +8,6 @@ before:
 builds:
   - id: setup-network-environment
     # handled by slsa-goreleaser
-    ignore:
-      - goos: linux
-        goarch: amd64
 
     goos:
       - linux
