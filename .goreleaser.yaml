@@ -27,8 +27,7 @@ archives:
   - name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if .Arm }}arm32v{{ .Arm }}
+      {{- if .Arm }}arm32v{{ .Arm }}
       {{- else }}{{ .Arch }}{{ end }}
     format: tar.gz
     # use zip for windows archives
